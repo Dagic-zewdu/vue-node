@@ -4,7 +4,7 @@
 
   `https://vue-node-test.onrender.com/api`
 
-Note that their is one user registered with the email and password `{"email":"xxx@gmail.com","Password":"abcd1234"`
+Note:- that their is one user registered with the email and password `{"email":"xxx@gmail.com","Password":"abcd1234"`
 
 | Endpoint | `/authentication`  | 
 | :-----:  | :-: | 
