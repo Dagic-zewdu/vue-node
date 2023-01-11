@@ -18,6 +18,7 @@ Note:- that their is one user registered with the email and password `{"email":"
 | EndPoint | `/user`  | 
 | :-----: | :-: |
 | Header  |   `{Token:”authentication token”}` |
+| Response | `{first_name: String,last_name: String,mobile_no: [String],email: String,city_name: String,state_id: String,country_id: String,}`|
 | Http method |  get       |
 
 * update profile this protected route needs a token in the header
@@ -34,6 +35,7 @@ Note:- that their is one user registered with the email and password `{"email":"
 | :-----: | :-: |
 | body    | email and password is required |
 | Response | `{first_name: String,last_name: String,mobile_no: [String],email: String,city_name: String,state_id: String,country_id: String,}`|
+|   Header    | `{Token:”authentication token”}`  |
 | Note | Email is the expected response but the other fields are optional because if they are empty the responses field are empty|
 
 <p align="right">(<a href="#top">back to top</a>)</p>
