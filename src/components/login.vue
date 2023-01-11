@@ -38,6 +38,7 @@
               <input type="checkbox" class="accent-[#E13D72]" name="remeber_me" />
               <p>Remember me?</p>
             </div>
+            <p v-if="error?.login" class="text-red-700">{{ error?.login }}</p>
           </div>
           <div class="flex flex-col gap-2">
             <button class="bg-[#E13D72] p-2 text-white rounded-md">LOGIN</button>
@@ -65,6 +66,8 @@
 </template>
 
 <script>
+import baseUrl from '../api';
+
 export default {
   data() {
     return {
@@ -84,6 +87,21 @@ export default {
       }
       if (!submit) {
         return;
+      }
+      this.handleSubmit(this.data.email, this.data.password);
+    },
+    async handleSubmit(email, password) {
+      try {
+        const res = await baseUrl().post('/authentication', { email, password });
+        console.log(res);
+        if (res.status === 200) {
+          localStorage.setItem('Token', res.data.Token);
+          this.$router.push('/updateProfile');
+          return;
+        }
+      } catch (err) {
+        console.log(err);
+        this.error.login = 'Email or password error please enter correctly';
       }
     },
   },

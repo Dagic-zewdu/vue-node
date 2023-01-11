@@ -7,12 +7,20 @@
     <div class="flex space-evenly justify-evenly">
       <i class="fas fa-book-open mr-10"></i>
       <i class="fas fa-cart-shopping mr-10"></i>
+      <p @click="logout" class="">Logout</p>
     </div>
   </nav>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    logout() {
+      localStorage.clear();
+      this.$router.push('login');
+    },
+  },
+};
 </script>
 
 <style lang="css" scoped>
