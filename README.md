@@ -1,7 +1,5 @@
 # Project vue test
 
-![screen-shot](./public/screen-shot/screen-shot.png)
-
 please use this [Live link](https://vue-test-ifs9.onrender.com). And use email(xxx@gmail.com
 ) and password(abcd123) to login. I am using the node server to autheticate to login `https://vue-node-test.onrender.com/api//authentication`. After authenticating the page redirect to `/updateProfile` which i should implement the question asked
 
