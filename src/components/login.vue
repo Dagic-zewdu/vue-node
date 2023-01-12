@@ -90,6 +90,7 @@ export default {
       if (!submit) {
         return;
       }
+      this.error = {};
       this.handleSubmit(this.data.email, this.data.password);
     },
     async handleSubmit(email, password) {
