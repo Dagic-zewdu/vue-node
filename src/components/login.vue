@@ -39,6 +39,7 @@
               <p>Remember me?</p>
             </div>
             <p v-if="error?.login" class="text-red-700">{{ error?.login }}</p>
+            <p v-if="loading" class="text-lime-600">{{ loading }}</p>
           </div>
           <div class="flex flex-col gap-2">
             <button class="bg-[#E13D72] p-2 text-white rounded-md">LOGIN</button>
@@ -72,6 +73,7 @@ export default {
   data() {
     return {
       data: { email: '', password: '' },
+      loading: '',
       error: {},
     };
   },
@@ -92,15 +94,19 @@ export default {
     },
     async handleSubmit(email, password) {
       try {
+        this.loading = 'Logging in please wait....';
         const res = await baseUrl().post('/authentication', { email, password });
         console.log(res);
         if (res.status === 200) {
           localStorage.setItem('Token', res.data.Token);
+          this.loading = '';
           this.$router.push('/updateProfile');
           return;
         }
+        this.loading = '';
       } catch (err) {
         console.log(err);
+        this.loading = '';
         this.error.login = 'Email or password error please enter correctly';
       }
     },
